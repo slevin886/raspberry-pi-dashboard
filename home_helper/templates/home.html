@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scott & Ariel's Home Helper</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="{{ url_for('static', filename='home.js') }}"></script>
+</head>
+<body onload="init()">
+<div class="container">
+    <div class="row ml-2 mr-2">
+        <div class="col">
+            <div class="row mt-5">
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col">
+                            <h1>Hi {{ user_name }}!</h1>
+                            <h5>Current time: <span id="clock_time"></span></h5>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col">
+                            <h5>Weather</h5>
+                            <hr>
+                            <div class="row">
+                                <div class="col">
+                                    <p>Currently: <span id="current_temp"></span>° (min: <span id="min_temp">
+                                        </span>°, max: <span id="max_temp"></span>°) w/ <span id="detailed_status">
+                                        </span></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <p>Wind speed: <span id="wind"></span></p>
+                                </div>
+                                <div class="col">
+                                    <p>Sunset at: <span id="sunset"></span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h5>Have a great day!</h5>
+                </div>
+                <div class="col-6 text-center">
+                    <div class="row">
+                        <div class="col">
+                            <img src="" id="dog_image" height="200px" alt="image of dog" style="border: 2px solid black;">
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col">
+                            <button type="button" class="btn-success btn-lg" onclick="setDogImage()"
+                                    style="border: 2px solid black;">
+                                change dog image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
