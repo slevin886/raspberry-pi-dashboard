@@ -47,11 +47,28 @@ function setWeather () {
     })
 }
 
+function setQuote () {
+    axios.get(
+    'get_quote'
+  )
+    .then((res) => {
+      const resData = res.data;
+      document.getElementById('quote').innerHTML = resData['quote'];
+      document.getElementById('author').innerHTML = resData['author'];
+    })
+    .catch((error) => {
+      const errorMessage = error.response.data;
+      console.log(errorMessage);
+    })
+}
+
 function init() {
   setClockTime();
   setDogImage();
   setWeather();
+  setQuote();
   setInterval(setClockTime, 1000 * 60);
   setInterval(setWeather, 1000 * 60 * 30);
+  setInterval(setQuote, 1000 * 60 * 24);
 }
 

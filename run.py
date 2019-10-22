@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from home_helper import create_app
 import os
 
