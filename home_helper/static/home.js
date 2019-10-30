@@ -47,14 +47,30 @@ function setWeather () {
     })
 }
 
-function setQuote () {
+// function setQuote () {
+//     axios.get(
+//     'get_quote'
+//   )
+//     .then((res) => {
+//       const resData = res.data;
+//       document.getElementById('quote').innerHTML = resData['quote'];
+//       document.getElementById('author').innerHTML = resData['author'];
+//     })
+//     .catch((error) => {
+//       const errorMessage = error.response.data;
+//       console.log(errorMessage);
+//     })
+// }
+
+function setEvents () {
     axios.get(
-    'get_quote'
+    'get_historic_events'
   )
     .then((res) => {
       const resData = res.data;
-      document.getElementById('quote').innerHTML = resData['quote'];
-      document.getElementById('author').innerHTML = resData['author'];
+      document.getElementById('event1').innerHTML = resData['events'][0];
+      document.getElementById('event2').innerHTML = resData['events'][1];
+      document.getElementById('event3').innerHTML = resData['events'][2];
     })
     .catch((error) => {
       const errorMessage = error.response.data;
@@ -62,13 +78,15 @@ function setQuote () {
     })
 }
 
-function init() {
-  setClockTime();
-  setDogImage();
-  setWeather();
-  setQuote();
+async function init() {
+  await Promise.all([
+    setClockTime(),
+    setDogImage(),
+    setWeather(),
+    setEvents(),
+  ]);
   setInterval(setClockTime, 1000 * 60);
   setInterval(setWeather, 1000 * 60 * 30);
-  setInterval(setQuote, 1000 * 60 * 24);
+  setInterval(setEvents, 1000 * 60 * 24);
 }
 
