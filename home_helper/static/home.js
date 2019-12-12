@@ -4,12 +4,11 @@ function setDogImage () {
     'get_dog_pic'
   )
     .then((res) => {
-      const resData = res.data;
+      let resData = res.data;
       document.getElementById('dog_image').src = resData['img_url'];
     })
     .catch((error) => {
-      const errorMessage = error.response.data;
-      console.log(errorMessage);
+      console.log(error.response);
     })
 }
 
@@ -33,7 +32,7 @@ function setWeather () {
     'get_weather'
   )
     .then((res) => {
-      const resData = res.data;
+      let resData = res.data;
       document.getElementById('current_temp').innerHTML = resData['temperature']['temp'];
       document.getElementById('min_temp').innerHTML = resData['temperature']['temp_min'];
       document.getElementById('max_temp').innerHTML = resData['temperature']['temp_max'];
@@ -42,25 +41,10 @@ function setWeather () {
       document.getElementById('wind').innerHTML = resData['wind'] + ' m/s';
     })
     .catch((error) => {
-      const errorMessage = error.response.data;
-      console.log(errorMessage);
+      console.log(error.response.data.msg);
     })
 }
 
-// function setQuote () {
-//     axios.get(
-//     'get_quote'
-//   )
-//     .then((res) => {
-//       const resData = res.data;
-//       document.getElementById('quote').innerHTML = resData['quote'];
-//       document.getElementById('author').innerHTML = resData['author'];
-//     })
-//     .catch((error) => {
-//       const errorMessage = error.response.data;
-//       console.log(errorMessage);
-//     })
-// }
 
 function setEvents () {
     axios.get(

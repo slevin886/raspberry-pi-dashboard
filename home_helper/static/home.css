@@ -1,0 +1,48 @@
+/*
+Color Scheme:
+#C9F0FF #EAFFFD #EFEFF0 #D5CAD6 #6B5E62
+*/
+html {
+    height: 100%;
+    background: black;
+}
+body {
+    height: 100%;
+    background-color: #EAFFFD;
+    font-family: 'Patrick Hand', cursive;
+    border-radius: 50%;
+}
+
+img {
+    border-radius: 20%;
+    border: 2px solid #6B5E62;
+}
+
+button {
+    border: 2px solid #6B5E62 !important;
+    background-color: #D5CAD6 !important;
+}
+.greeting {
+    background-color:#C9F0FF;
+    border-radius: 0 160px 0 160px;
+}
+
+.history {
+    background-color:#C9F0FF;
+}
+
+.supporting_text {
+    color: #6B5E62;
+    font-size: 17px;
+}
+
+.main_text {
+    color: #6B5E62;
+    font-size: 24px;
+    font-weight: 500;
+}
+.history_text {
+    color: #6B5E62;
+    font-size: 22px;
+    font-weight: 500;
+}

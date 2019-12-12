@@ -3,24 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Scott & Ariel's Home Helper</title>
+    <title>{{ USER_NAME }}'s Home Helper</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Patrick+Hand&display=swap">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
     <script src="{{ url_for('static', filename='home.js') }}"></script>
 </head>
 <body onload="init()">
 <div class="container">
-    <div class="row ml-2 mr-2">
+    <div class="row">
         <div class="col">
-            <div class="row">
+            <div class="row mb-0 pb-0">
                 <div class="col-6">
                     <div class="row mt-5">
                         <div class="col">
                             <div class="row">
-                                <div class="col">
+                                <div class="col greeting">
                                     <h3>Hi {{ user_name }}!</h3>
-                                    <p>Current time: <strong><span id="clock_time"></span></strong></p>
+                                    <p class="pl-5 supporting_text">It's currently
+                                        <span id="clock_time" class="main_text"></span>
+                                    </p>
                                 </div>
                             </div>
                             <hr>
@@ -28,17 +32,27 @@
                                 <div class="col">
                                     <div class="row">
                                         <div class="col">
-                                            <p>Currently: <strong><span id="current_temp"></span>° (min: <span id="min_temp">
-                                                </span>°, max: <span id="max_temp"></span>°) w/ <span id="detailed_status">
-                                                </span></strong></p>
+                                            <p class="supporting_text">The temperature is
+                                                <span id="current_temp" class="main_text"></span><span class="main_text">°</span>
+                                                w/ a low of <span id="min_temp" class="main_text"></span>
+                                                <span class="main_text">°</span> & high of
+                                                <span id="max_temp" class="main_text"></span>
+                                                <span class="main_text">°</span>
+                                            <p class="supporting_text">Expect
+                                                <span id="detailed_status" class="main_text"></span>
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <p>Wind speed: <strong><span id="wind"></span></strong></p>
+                                            <p class="supporting_text">The wind speed is
+                                                <span id="wind" class="main_text"></span></p>
                                         </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col">
-                                            <p>Sunset at: <strong><span id="sunset"></span></strong></p>
+                                            <p class="supporting_text">The sun sets today at
+                                                <span id="sunset" class="main_text"></span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -47,17 +61,17 @@
                     </div>
                 </div>
                 <div class="col-6 text-center">
-                    <div class="row mt-3">
+                    <div class="row mt-5">
                         <div class="col">
-                            <img src="" id="dog_image" height="200px" alt="image of dog" style="border: 2px solid black;">
-                        </div>
-                    </div>
-                    <div class="row mt-1">
-                        <div class="col">
-                            <button type="button" class="btn-success btn-sm" onclick="setDogImage()"
-                                    style="border: 2px solid black;">
+                            <button type="button" class="btn" onclick="setDogImage()">
                                 change dog image
                             </button>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <img src="" id="dog_image" height="200px" alt="image of dog"
+                                 class="img-responsive">
                         </div>
                     </div>
                 </div>
@@ -65,11 +79,11 @@
             <div class="row">
                 <div class="col">
                     <hr>
-                    <p><strong>Today's Historic Events</strong></p>
-                    <ul>
-                        <li id="event1"></li>
-                        <li id="event2"></li>
-                        <li id="event3"></li>
+                    <p class="supporting_text mb-0 pl-3">Today in history...</p>
+                    <ul class="history">
+                        <li class="history_text" id="event1"></li>
+                        <li class="history_text" id="event2"></li>
+                        <li class="history_text" id="event3"></li>
                     </ul>
                 </div>
             </div>
